@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Triệu Biến Minh Chú</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      max-width: 450px;
+      width: 100%;
+      padding: 24px;
+      border: 1px solid #e0a843;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .wrapper img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 5px solid transparent;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 20px;
+      color: #222;
+      margin-bottom: 4px;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-top: 0;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .counter-label {
+      margin-top: 20px;
+      font-weight: 600;
+      color: #222;
+      font-size: 14px;
+    }
+
+    .counter-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #d49129;
+      margin-top: 8px;
+    }
+
+    .countdown {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .countdown-date {
+      font-size: 14px;
+      color: #d49129;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .input-label {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .input-container {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    input[type="number"] {
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      background: #f2f2f2;
+      color: #555;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 24px;
+      font-size: 16px;
+      background-color: #d3a25c;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background-color: #c48e44;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <img src="bdc3fc9b-e384-3c0e-ff28-03512b98d6b0_undefined.jpg" alt="Quán Thế Âm" />
+
+    <h1>100 TRIỆU BIẾN MINH CHÚ QUÁN THẾ ÂM</h1>
+    <!-- <h2>(LẦN 6 - 2025)</h2> -->
+
+    <div class="counter-label">TỨC SỐ HIỆN TẠI</div>
+    <div class="counter-number" id="total">0</div>
+
+    <!-- <div class="countdown">THỜI GIAN CÒN LẠI</div>
+    <div class="countdown-date">02/06/2025</div> -->
+
+    <div class="input-label">NHẬP SỐ LƯỢNG CHÚ TRÌ TỤNG</div>
+    <div class="input-container">
+      <input type="number" id="numberInput" placeholder="của bạn" />
+      <button onclick="addNumber()">NHẬP</button>
+    </div>
+  </div>
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPd5IrqiGaQGQLU1FElksRsEjThjl3nD2ky9yl1ZSzu4Qx-DTvMapm6BWOgdZk3LP8qQ/exec';
+
+  let total = 0;
+  let history = [];
+
+  window.onload = () => {
+    fetch(SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        total = parseInt(data.total || 0);
+        // history = data.history ? data.history.split(',') : [];
+        if (typeof data.history === 'string') {
+          history = data.history.split(',');
+        } else if (Array.isArray(data.history)) {
+          history = data.history;
+        } else {
+          history = [];
+        }
+
+        updateUI();
+      })
+      .catch(err => alert('Không tải được dữ liệu: ' + err));
+  };
+
+  function addNumber() {
+    const input = document.getElementById('numberInput');
+    const value = parseFloat(input.value);
+
+    if (!isNaN(value)) {
+      total += value;
+      history.push(value);
+      updateUI();
+      saveData();
+      input.value = '';
+    }
+  }
+
+  function updateUI() {
+    document.getElementById('total').textContent = total.toLocaleString();
+    // XÓA dòng dưới vì không có phần tử #history trong HTML
+    // document.getElementById('history').textContent = history.join(', ') || 'Chưa có';
+  }
+
+  function saveData() {
+    const url = `${SCRIPT_URL}?write=true&total=${total}&history=${encodeURIComponent(history.join(','))}`;
+    fetch(url)
+      .then(res => res.json())
+      .then(data => console.log('Đã lưu:', data))
+      .catch(err => alert('Không lưu được: ' + err));
+  }
+</script>
+</body>
+</html>
