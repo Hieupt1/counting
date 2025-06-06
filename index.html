@@ -81,6 +81,28 @@
       font-weight: 600;
     }
 
+    .normal_text {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #000;
+      font-weight: 100;
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    .highlight-text {
+      /* color:  #d49129; */
+      font-weight: bold;
+      /* text-transform: uppercase; Ví dụ: Viết hoa toàn bộ */
+    }
+
+    .description {
+      margin-top: 0px;
+      font-size: 14px;
+      color: #000;
+      font-weight: 600;
+    }
+
     .input-container {
       margin-top: 12px;
       display: flex;
@@ -114,13 +136,35 @@
     button:hover {
       background-color: #c48e44;
     }
+
+    .image-container {
+      display: flex; /* Dòng quan trọng nhất: Kích hoạt Flexbox */
+      gap: 16px; /* Tùy chọn: Tạo khoảng cách 16px giữa hai ảnh */
+    }
+
+    .image-container img {
+      width: 50%; /* Chia đôi chiều rộng, mỗi ảnh chiếm 50% */
+      height: auto; /* Giữ đúng tỷ lệ ảnh */
+      object-fit: cover; /* Đảm bảo ảnh lấp đầy không gian mà không bị méo */
+    }
+
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <img src="bdc3fc9b-e384-3c0e-ff28-03512b98d6b0_undefined.jpg" alt="Quán Thế Âm" />
 
-    <h1>100 TRIỆU BIẾN MINH CHÚ QUÁN THẾ ÂM</h1>
+    <h1 style="font-size: 18px;color: #d49129;">CHÙA ĐẠI BI</h1>
+
+    <h1 style="margin-bottom: 10px;">PHẬT SỰ CHUNG SỨC TÍCH LUỸ 100 TRIỆU BIẾN MINH CHÚ QUÁN THẾ ÂM</h1>
+
+
+    <img src="89720ce8-6e87-4b7d-b3d1-f595853b779d.jpeg" alt="Quán Thế Âm" />
+
+    <div class="description">TIẾNG TẠNG: ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ</div>
+    <div class="description">ÂM VIỆT: ÔM MÀ NI BÁT MÊ HỒNG</div>
+
+
+
     <!-- <h2>(LẦN 6 - 2025)</h2> -->
 
     <div class="counter-label">TỨC SỐ HIỆN TẠI</div>
@@ -134,6 +178,56 @@
       <input type="number" id="numberInput" placeholder="của bạn" />
       <button onclick="addNumber()">NHẬP</button>
     </div>
+
+    <!-- <div class="counter-label">GIỚI THIỆU VỀ CHÂM NGÔN VÀ CÁCH ĐỌC</div> -->
+    <h1 style="font-size: 16px;color: #d49129;margin-top: 35px;">GIỚI THIỆU VỀ CHÂM NGÔN VÀ CÁCH ĐỌC</h1>
+
+
+    <div class="input-label" style="font-size: 16px" >Sức Mạnh Vô Biên của Châm Ngôn Om Mani Padme Hung</div>
+
+    <div class="normal_text">Trong dòng chảy bất tận của cuộc sống, chúng ta luôn tìm kiếm những điểm tựa tinh thần, những phương cách để tìm thấy sự bình an và vượt qua khổ đau. Giữa vô vàn giáo lý và triết lý, có một chân ngôn đã được hàng triệu người trên thế giới tôn kính và thực hành trong hàng ngàn năm: Om Mani Padme Hung. Đây không chỉ là một chuỗi âm thanh đơn thuần, mà là một lời cầu nguyện thiêng liêng, ẩn chứa sức mạnh chuyển hóa và lòng từ bi vô lượng của chư Phật. </div>
+
+    <div class="normal_text">Khi chúng ta thành tâm trì niệm Om Mani Padme Hung, chúng ta không chỉ lặp lại những từ ngữ. Mỗi âm tiết của chân ngôn này đều mang một ý nghĩa sâu xa, đại diện cho những phẩm chất cao quý và những con đường giải thoát:  </div>
+
+    <div class="normal_text" style="color: #d49129;margin-top: 10px;">* Om là âm thanh nguyên thủy của vũ trụ, tượng trưng cho sự hợp nhất của thân, khẩu, ý chúng ta với thân, khẩu, ý của Phật.  </div>
+
+    <div class="normal_text" style="color: #d49129;margin-top: 10px;">* Mani có nghĩa là "viên ngọc", biểu trưng cho lòng từ bi và giác ngộ, khả năng thanh lọc mọi phiền não.  </div>
+
+    <div class="normal_text" style="color: #d49129;margin-top: 10px;">* Padme có nghĩa là "hoa sen", tượng trưng cho sự tinh khiết và trí tuệ, khả năng vươn lên khỏi bùn lầy thế tục mà vẫn giữ được sự trong sạch. </div>
+
+    <div class="normal_text" style="color: #d49129;margin-top: 10px;">* Hung là âm thanh biểu thị sự hợp nhất của lòng từ bi và trí tuệ, mang lại sự chuyển hóa và an lạc.  </div>
+
+    <div class="normal_text">Việc trì niệm Om Mani Padme Hung một cách chuyên tâm và thành kính không chỉ là một nghi lễ tâm linh. Nó là một thực hành mạnh mẽ giúp thanh lọc những nghiệp xấu, tích lũy công đức, và phát triển lòng từ bi vô hạn đối với tất cả chúng sinh. Khi bạn nhắm mắt lại, hít thở sâu và để những âm thanh này vang vọng trong tâm trí, bạn sẽ cảm nhận được một luồng năng lượng bình yên lan tỏa, xoa dịu những lo âu, phiền muộn và khơi dậy nguồn sáng bên trong.  </div>
+
+    <div class="normal_text">Hàng ngàn năm qua, vô số người đã chứng thực được sự thay đổi tích cực trong cuộc sống của họ nhờ vào chân ngôn này. Từ những thiền sư vĩ đại cho đến những người bình thường đang đối mặt với thử thách, Om Mani Padme Hung đã trở thành ngọn hải đăng dẫn lối, mang lại sự bình an, chữa lành và giác ngộ.   </div>
+
+    <div class="normal_text">Hãy để Om Mani Padme Hung trở thành lời nguyện hàng ngày của bạn. Hãy trải nghiệm sự chuyển hóa kỳ diệu mà nó mang lại. Bởi vì, khi bạn hoàn toàn tin tưởng và hòa mình vào dòng chảy của lòng từ bi và trí tuệ mà chân ngôn này đại diện, bạn sẽ khám phá ra sức mạnh vô biên tiềm ẩn trong chính mình và mở cánh cửa đến một cuộc sống an lạc, ý nghĩa hơn.  </div>
+
+
+    <div class="input-label" style="margin-top: 35px; text-align: center; text-transform: uppercase;font-size: 16px">Hướng dẫn đọc minh chú:</div>
+
+    <div class="normal_text" style="color: #d49129;margin-top: 10px; text-align: center; font-weight: 700;"> ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ</div>
+
+    <div class="normal_text" style="color: #d49129;margin-top: 10px; text-align: center; font-weight: 700"> Ôm mà ni bát mê hồng</div>
+
+
+
+    <div class="input-label" style="margin-top: 35px; text-align: center; text-transform: uppercase;font-size: 16px">Cách thức tham gia Phật sự:</div>
+
+    <div class="normal_text"> <span class="highlight-text">Bước 1</span>: quý Phật tử tự chuẩn bị 1 máy bấm số ví dụ như trong hình</div>
+
+    <div class="image-container">
+        <img src="z3900807617319_b2a8a1c4129c3e00120f6eb43a7d7954 Background Removed.png" alt="Ảnh mô tả 1">
+        <img src="emfjnd80 Background Removed.png" alt="Ảnh mô tả 2">
+    </div>
+
+    <div class="normal_text"><span class="highlight-text">Bước 2</span>: Hàng ngày khi rảnh dỗi quý vị hình dung tới Đức Quán Thế Âm và đeo máy bấm số, mỗi lần đọc ôm ma ni bát mê hùng thì bấm 1 lần. </div>
+
+    <div class="normal_text"><span class="highlight-text">Bước 3</span>: Vào cuối ngày quý vị vào trang web và nhập số mà quý vị đã tích lũy qua máy bấm.  </div>
+
+    <div class="normal_text"><span class="highlight-text">Bước 4</span>: Hồi hướng công đức, cầu nguyện nhờ công đức này mà thế giới hoà bình và tất cả chúng sinh thoát khỏi nguyên nhân của khổ đau 🙏.   </div>
+
+    
   </div>
 
 <script>
